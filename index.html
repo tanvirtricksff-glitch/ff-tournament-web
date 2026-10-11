@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="FF Tournament — Free Fire tournament listings and player portal.">
+  <title>FF Tournament | Player Arena</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="FF Tournament home">
+      <span class="brand-mark">FF</span><span>TOURNAMENT<span class="brand-sub">PLAYER ARENA</span></span>
+    </a>
+    <button class="btn btn-outline" id="openAuth">লগইন / রেজিস্টার</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="live-dot"></span> COMMUNITY MATCHES</span>
+        <h1>তোমার স্কিল দেখাও।<br><span>চ্যাম্পিয়ন হও।</span></h1>
+        <p>Solo, Duo এবং Squad ম্যাচের আপডেট দেখো, অ্যাকাউন্ট তৈরি করো, আর তোমার পরের ম্যাচের জন্য প্রস্তুত হও।</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#tournaments">টুর্নামেন্ট দেখো <span>↘</span></a>
+          <button class="btn btn-ghost" id="heroAuth">প্লেয়ার অ্যাকাউন্ট</button>
+        </div>
+        <div class="trust-line"><span>✓</span> Player portal starter <span>•</span> Firebase-ready</div>
+      </div>
+      <div class="hero-card" aria-label="Tournament preview">
+        <div class="card-top"><span class="pill pill-green">NEXT MATCH</span><span class="tiny">FF / ARENA</span></div>
+        <div class="game-emblem">⚡</div>
+        <p class="mini-label">BATTLE ROYALE</p>
+        <h2>DROP IN.<br>RISE UP.</h2>
+        <div class="preview-stats"><div><strong>৳২০</strong><span>এন্ট্রি ফি</span></div><div><strong>৳১০০</strong><span>প্রাইজ পুল</span></div><div><strong>৩</strong><span>মোড</span></div></div>
+      </div>
+    </section>
+
+    <section class="stats-row">
+      <div><span class="stat-icon">◈</span><strong>৩টি মোড</strong><small>Solo · Duo · Squad</small></div>
+      <div><span class="stat-icon">৳</span><strong>৳২০ Entry</strong><small>Sample configuration</small></div>
+      <div><span class="stat-icon">🏆</span><strong>৳১০০ Prize</strong><small>Set by tournament host</small></div>
+    </section>
+
+    <section class="section" id="tournaments">
+      <div class="section-heading"><div><span class="eyebrow">FIND YOUR MATCH</span><h2>চলমান টুর্নামেন্ট</h2></div><span class="muted" id="tournamentStatus">Firebase সংযোগের অপেক্ষায়…</span></div>
+      <div class="filter-row" role="group" aria-label="Filter tournaments">
+        <button class="filter active" data-filter="All">সব</button><button class="filter" data-filter="Solo">Solo</button><button class="filter" data-filter="Duo">Duo</button><button class="filter" data-filter="Squad">Squad</button>
+      </div>
+      <div class="tournament-grid" id="tournamentGrid">
+        <article class="tournament-card sample-card"><div class="tournament-art solo-art"><span>SOLO</span><b>01</b></div><div class="tournament-info"><div class="card-meta"><span class="pill">DEMO</span><span>◷ Upcoming</span></div><h3>Free Fire Solo</h3><p>Firebase কনফিগার করলে Firestore-এর ম্যাচ এখানে দেখাবে।</p><div class="match-data"><div><small>এন্ট্রি ফি</small><strong>৳২০</strong></div><div><small>প্রাইজ পুল</small><strong>৳১০০</strong></div><div><small>স্লট</small><strong>—</strong></div></div><button class="btn btn-primary join-btn" data-auth-required>লগইন করে যোগ দাও</button></div></article>
+      </div>
+      <p class="footnote">ডেমো কার্ড বাস্তব টুর্নামেন্ট বা পুরস্কারের নিশ্চয়তা নয়। ম্যাচের শর্ত ও পুরস্কার আয়োজকের কাছ থেকে যাচাই করো।</p>
+    </section>
+
+    <section class="section steps-section">
+      <div class="section-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>খেলার প্রস্তুতি</h2></div></div>
+      <div class="steps-grid"><div class="step"><span>01</span><h3>অ্যাকাউন্ট তৈরি</h3><p>ইমেইল ও পাসওয়ার্ড দিয়ে প্লেয়ার অ্যাকাউন্ট খোলো।</p></div><div class="step"><span>02</span><h3>ম্যাচ বেছে নাও</h3><p>মোড, এন্ট্রি ফি, স্লট ও নিয়ম পড়ে নাও।</p></div><div class="step"><span>03</span><h3>নির্দেশনা অনুসরণ</h3><p>পেমেন্ট বা রেজিস্ট্রেশন কেবল যাচাইকৃত অফিসিয়াল নির্দেশনা অনুযায়ী করো।</p></div></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">FF</span><span>TOURNAMENT<span class="brand-sub">PLAYER ARENA</span></span></a><span>Starter template · Firebase integration required</span></footer>
+
+  <div class="modal-backdrop" id="authModal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" id="closeAuth" aria-label="Close">×</button>
+      <span class="eyebrow">PLAYER ACCESS</span><h2 id="authTitle">প্লেয়ার অ্যাকাউন্ট</h2>
+      <p class="muted">ইমেইল ও পাসওয়ার্ড দিয়ে রেজিস্টার বা লগইন করো।</p>
+      <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login">লগইন</button><button class="auth-tab" data-auth-mode="signup">নতুন অ্যাকাউন্ট</button></div>
+      <form id="authForm">
+        <label for="displayName" id="nameLabel" hidden>প্লেয়ার নাম</label><input id="displayName" autocomplete="nickname" placeholder="প্লেয়ার নাম" hidden>
+        <label for="email">ইমেইল</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="password">পাসওয়ার্ড</label><input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="কমপক্ষে ৬ অক্ষর" required>
+        <button class="btn btn-primary full-width" id="authSubmit" type="submit">লগইন</button>
+      </form>
+      <p class="form-message" id="authMessage" role="status"></p>
+      <div class="account-row" id="accountRow" hidden><span id="accountEmail"></span><button class="btn btn-outline" id="signOut" type="button">লগআউট</button></div>
+      <p class="security-note">কখনো bKash/Nagad PIN বা OTP এখানে দেবে না।</p>
+    </section>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

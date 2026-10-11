@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Tournament listings can be read by signed-in players.
+    // Only trusted admins/server code should create or edit tournaments.
+    match /tournaments/{tournamentId} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if false;
+    }
+
+    // A player may read and edit only their own basic profile.
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create, update: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['displayName', 'email', 'createdAt']);
+      allow delete: if false;
+    }
+
+    // No public write access. Add validated server-side registration/payment
+    // workflow before allowing writes to these collections.
+    match /registrations/{registrationId} {
+      allow read, write: if false;
+    }
+    match /payments/{paymentId} {
+      allow read, write: if false;
+    }
+  }
+}
